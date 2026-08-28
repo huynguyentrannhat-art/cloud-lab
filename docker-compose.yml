@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./mern-demo
+    container_name: mern-backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: mongodb+srv://cloudadmin:123456Aa@cluster0.rgrwkpa.mongodb.net/cloud_lab?appName=Cluster0
+    networks:
+      - mern-network
+
+  frontend:
+    build:
+      context: ./client
+    container_name: mern-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+    driver: bridge
