@@ -334,7 +334,7 @@ function App() {
       <header className="topbar">
         <div>
           <p className="eyebrow">Student Management</p>
-          <h1>Quản Lý Sinh Viên</h1>
+         <h1>Quản Lý Sinh Viên - Version 2.0</h1> 
         </div>
         <div className="export-actions">
           <select aria-label="Chọn định dạng báo cáo" value={reportFormat} onChange={(event) => setReportFormat(event.target.value)}>

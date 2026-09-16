@@ -1,0 +1,24 @@
+services:
+  backend:
+    image: nhathuy236988/mern-backend:1.0
+    container_name: mern-backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: ${MONGODB_URI}
+    networks:
+      - mern-network
+
+  frontend:
+    image: nhathuy236988/mern-frontend:2.0
+    container_name: mern-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - mern-network
+
+networks:
+  mern-network:
+    driver: bridge
